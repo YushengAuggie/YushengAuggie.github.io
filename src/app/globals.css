@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --color-background: #FDFAF6;
+  --color-surface: #F5EDE4;
+  --color-primary: #C4644A;
+  --color-primary-dark: #9A3F2A;
+  --color-primary-light: #E8A590;
+  --color-accent: #7B9E87;
+  --color-text: #2D2926;
+  --color-text-secondary: #6B5F56;
+  --color-border: #E0D5C7;
+
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), Georgia, serif;
+}
+
+code, pre {
+  font-family: var(--font-mono), monospace;
+}
+
+::selection {
+  background-color: var(--color-primary-light);
+  color: var(--color-text);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Prose overrides for blog posts */
+.prose {
+  --tw-prose-body: var(--color-text);
+  --tw-prose-headings: var(--color-text);
+  --tw-prose-links: var(--color-primary);
+  --tw-prose-code: var(--color-primary-dark);
+  --tw-prose-quotes: var(--color-text-secondary);
+  --tw-prose-quote-borders: var(--color-primary-light);
+  --tw-prose-hr: var(--color-border);
+}
+
+.prose a:hover {
+  color: var(--color-primary-dark);
+}
+
+.prose code {
+  background-color: var(--color-surface);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Highlight.js overrides */
+.hljs {
+  background: #1e1e2e !important;
+  border-radius: 0.5rem;
+}

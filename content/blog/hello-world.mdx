@@ -1,0 +1,43 @@
+---
+title: "Hello World: Building My New Personal Website"
+date: "2026-02-14"
+description: "A look at how I rebuilt my personal website from scratch using Next.js, Tailwind CSS, and Framer Motion."
+tags: ["Next.js", "Web Dev", "Design"]
+---
+
+## Why a new site?
+
+My old personal website had been sitting as a 404 page for far too long. I wanted something that felt more like *me* — a place that showcases not just my code, but also my photography and writing.
+
+## The tech stack
+
+I chose **Next.js 15** with static export for a few reasons:
+
+- **Performance**: Static HTML is as fast as it gets
+- **Developer experience**: App Router and TypeScript make development a joy
+- **Flexibility**: MDX lets me write rich blog posts with embedded components
+
+For styling, **Tailwind CSS** was the obvious choice. Combined with `@tailwindcss/typography` for prose styling, it handles everything from layout to fine-grained design tokens.
+
+## Animations that feel right
+
+I used **Framer Motion** for all animations. The key principle: animations should *enhance* the experience, not distract from it.
+
+```tsx
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+>
+  {children}
+</motion.div>
+```
+
+Every animation respects `prefers-reduced-motion` — accessibility comes first.
+
+## What's next
+
+I plan to keep adding blog posts, expanding the project showcase, and uploading more photography. This site is a living project that will grow alongside me.
+
+Thanks for visiting!

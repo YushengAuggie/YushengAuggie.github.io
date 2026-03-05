@@ -1,0 +1,48 @@
+---
+title: "Thoughts on Writing Clean Code"
+date: "2026-02-10"
+description: "Lessons learned about code readability, naming conventions, and when simplicity beats cleverness."
+tags: ["Software Engineering", "Best Practices"]
+---
+
+## The simplicity principle
+
+The best code I've ever written is code that looks *obvious*. Not clever, not abstract — just clear.
+
+Over the years, I've come to appreciate a few rules of thumb:
+
+### 1. Name things for what they do, not how they work
+
+```python
+# Bad
+def proc_data(d):
+    return [x for x in d if x.a > 0]
+
+# Good
+def filter_active_users(users):
+    return [user for user in users if user.is_active]
+```
+
+### 2. Functions should do one thing
+
+If you need the word "and" to describe what a function does, it probably needs to be split.
+
+### 3. Comments explain *why*, not *what*
+
+```javascript
+// Bad: increment counter by one
+counter += 1;
+
+// Good: retry count tracks failed API attempts for circuit breaker
+retryCount += 1;
+```
+
+## When abstraction hurts
+
+I've seen (and written) plenty of over-abstracted code. Three similar lines of code are almost always better than a premature abstraction.
+
+The right question isn't "how can I make this more generic?" but "is this code easy to change when requirements shift?"
+
+## Keep learning
+
+Every codebase teaches you something. Read other people's code. Review your own code from six months ago. The cringe you feel is growth.
