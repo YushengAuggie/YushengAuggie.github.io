@@ -2,45 +2,60 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 
 const placeholderPhotos = [
-  { id: 1, color: "bg-primary-light/40" },
-  { id: 2, color: "bg-accent/40" },
-  { id: 3, color: "bg-primary/20" },
-  { id: 4, color: "bg-accent/20" },
+  { id: 1, label: "City", span: "col-span-2 row-span-2", color: "bg-primary/15" },
+  { id: 2, label: "Mountains", span: "", color: "bg-accent/20" },
+  { id: 3, label: "Street", span: "", color: "bg-primary-light/25" },
+  { id: 4, label: "Travel", span: "", color: "bg-accent/15" },
+  { id: 5, label: "Night", span: "", color: "bg-primary/10" },
 ];
 
 export default function PhotoTeaser() {
   return (
-    <section className="py-24 px-6 bg-surface">
+    <section className="py-28 px-6 bg-surface">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          title="Photography"
-          subtitle="Capturing moments through the lens"
-        />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="flex items-end justify-between">
+          <SectionHeading
+            label="Photography"
+            title="Through the Lens"
+            className="mb-0"
+          />
+          <Link
+            href="/photos"
+            className="mb-12 hidden items-center gap-1 text-sm font-semibold text-text-secondary transition-colors hover:text-primary md:flex"
+          >
+            View gallery <ArrowUpRight size={15} />
+          </Link>
+        </div>
+
+        <div className="mt-10 grid h-80 grid-cols-4 grid-rows-2 gap-3">
           {placeholderPhotos.map((photo, i) => (
             <motion.div
               key={photo.id}
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className={`group aspect-square overflow-hidden rounded-lg ${photo.color}`}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.07 }}
+              className={`group cursor-pointer overflow-hidden rounded-xl ${photo.color} ${photo.span}`}
             >
-              <div className="flex h-full items-center justify-center text-text-secondary/50 text-xs transition-colors group-hover:text-text-secondary">
-                Photo {photo.id}
+              <div className="flex h-full items-end p-3 opacity-0 transition-opacity group-hover:opacity-100">
+                <span className="text-xs font-medium text-text-secondary">
+                  {photo.label}
+                </span>
               </div>
             </motion.div>
           ))}
         </div>
-        <div className="mt-10 text-center">
+
+        <div className="mt-6 md:hidden">
           <Link
             href="/photos"
-            className="inline-block rounded-full border border-border bg-background px-8 py-3 text-sm font-medium text-text transition-colors hover:border-primary hover:text-primary"
+            className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
           >
-            View Gallery
+            View gallery <ArrowUpRight size={15} />
           </Link>
         </div>
       </div>

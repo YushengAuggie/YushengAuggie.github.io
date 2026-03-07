@@ -3,15 +3,19 @@
 import { motion } from "framer-motion";
 
 interface SectionHeadingProps {
+  label?: string;
   title: string;
   subtitle?: string;
   className?: string;
+  light?: boolean;
 }
 
 export default function SectionHeading({
+  label,
   title,
   subtitle,
   className = "",
+  light = false,
 }: SectionHeadingProps) {
   return (
     <motion.div
@@ -21,11 +25,19 @@ export default function SectionHeading({
       transition={{ duration: 0.5 }}
       className={`mb-12 ${className}`}
     >
-      <h2 className="text-3xl md:text-4xl font-bold text-text">{title}</h2>
-      {subtitle && (
-        <p className="mt-3 text-lg text-text-secondary">{subtitle}</p>
+      {label && (
+        <p className={`mb-3 text-xs font-semibold uppercase tracking-widest ${light ? "text-white/40" : "text-primary"}`}>
+          {label}
+        </p>
       )}
-      <div className="mt-4 h-1 w-16 rounded bg-primary" />
+      <h2 className={`text-3xl font-bold md:text-4xl ${light ? "text-white" : "text-text"}`}>
+        {title}
+      </h2>
+      {subtitle && (
+        <p className={`mt-3 text-base ${light ? "text-white/50" : "text-text-secondary"}`}>
+          {subtitle}
+        </p>
+      )}
     </motion.div>
   );
 }

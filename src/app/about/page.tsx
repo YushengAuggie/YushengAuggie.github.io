@@ -5,14 +5,61 @@ import SocialLinks from "@/components/shared/SocialLinks";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn more about Yusheng Ding — software engineer, photographer, and creative thinker.",
+  description:
+    "Yusheng Ding — software engineer, photographer, and occasional writer based in San Francisco.",
 };
+
+const whatIDo = [
+  {
+    title: "Full-Stack Engineering",
+    desc: "From React frontends to distributed backend services, I care about systems that are fast, reliable, and easy to maintain.",
+  },
+  {
+    title: "Developer Tooling",
+    desc: "I love building tools that make other engineers more productive — CLIs, internal platforms, and automation pipelines.",
+  },
+  {
+    title: "Photography",
+    desc: "Street, landscape, and travel photography. I shoot mostly on weekends when the light is good and I have nowhere urgent to be.",
+  },
+  {
+    title: "Writing",
+    desc: "I write about engineering decisions, things I've learned the hard way, and tools worth knowing about.",
+  },
+];
+
+const timeline = [
+  {
+    year: "2024 – Present",
+    title: "Senior Software Engineer",
+    detail: "Working on developer infrastructure at a Bay Area tech company.",
+  },
+  {
+    year: "2021 – 2024",
+    title: "Software Engineer",
+    detail:
+      "Built and scaled data pipelines and internal tooling serving millions of events per day.",
+  },
+  {
+    year: "2019 – 2021",
+    title: "Software Engineer (New Grad)",
+    detail:
+      "Started my career working on full-stack features for a B2B SaaS product.",
+  },
+  {
+    year: "2019",
+    title: "B.S. Computer Science",
+    detail: "Graduated with a focus on systems and distributed computing.",
+  },
+];
 
 export default function AboutPage() {
   return (
     <PageTransition>
       <div className="pt-32 pb-24 px-6">
         <div className="mx-auto max-w-3xl">
+
+          {/* Header */}
           <ScrollReveal>
             <h1 className="text-4xl md:text-5xl font-bold text-text">
               About Me
@@ -20,6 +67,7 @@ export default function AboutPage() {
             <div className="mt-4 h-1 w-16 rounded bg-primary" />
           </ScrollReveal>
 
+          {/* Intro */}
           <ScrollReveal delay={0.1}>
             <div className="mt-12 flex flex-col items-center gap-8 md:flex-row md:items-start">
               <div className="h-48 w-48 shrink-0 overflow-hidden rounded-2xl bg-surface">
@@ -33,44 +81,34 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <p className="text-lg leading-relaxed text-text">
                   Hi, I&apos;m <strong>Yusheng Ding</strong> — a software
-                  engineer who loves building elegant solutions to complex
-                  problems. I&apos;m passionate about clean code, thoughtful
-                  design, and the intersection of technology and creativity.
+                  engineer based in San Francisco. I&apos;ve spent the past
+                  several years building backend systems, internal tooling, and
+                  the occasional polished frontend that makes people say
+                  &ldquo;oh, this actually feels nice.&rdquo;
                 </p>
                 <p className="text-text-secondary leading-relaxed">
-                  I have experience across the full stack, from building
-                  responsive front-end interfaces to designing scalable
-                  back-end services. I enjoy working with modern frameworks
-                  and tools to deliver products that are both performant and
-                  delightful to use.
+                  I grew up fascinated by how things work under the hood. That
+                  curiosity led me to computer science and eventually to a career
+                  where I get to spend my days solving interesting problems with
+                  good people. I care a lot about code quality, clear
+                  communication, and shipping things that hold up over time.
+                </p>
+                <p className="text-text-secondary leading-relaxed">
+                  When I&apos;m not at a computer, I&apos;m out with a camera,
+                  hiking somewhere with a good elevation gain, or trying a new
+                  ramen spot I probably read about at 11pm.
                 </p>
               </div>
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.2}>
+          {/* What I Do */}
+          <ScrollReveal delay={0.15}>
             <div className="mt-16">
               <h2 className="text-2xl font-bold text-text">What I Do</h2>
               <div className="mt-2 h-1 w-12 rounded bg-primary" />
-              <div className="mt-6 grid gap-6 sm:grid-cols-2">
-                {[
-                  {
-                    title: "Software Engineering",
-                    desc: "Building robust, scalable applications with modern tools and best practices.",
-                  },
-                  {
-                    title: "Photography",
-                    desc: "Capturing stories through landscape, street, and portrait photography.",
-                  },
-                  {
-                    title: "Technical Writing",
-                    desc: "Sharing knowledge through blog posts, tutorials, and documentation.",
-                  },
-                  {
-                    title: "Open Source",
-                    desc: "Contributing to and maintaining open source projects that help the community.",
-                  },
-                ].map((item) => (
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {whatIDo.map((item) => (
                   <div
                     key={item.title}
                     className="rounded-xl border border-border bg-surface p-5"
@@ -85,17 +123,43 @@ export default function AboutPage() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.3}>
+          {/* Timeline */}
+          <ScrollReveal delay={0.2}>
+            <div className="mt-16">
+              <h2 className="text-2xl font-bold text-text">Background</h2>
+              <div className="mt-2 h-1 w-12 rounded bg-primary" />
+              <div className="mt-6 space-y-6">
+                {timeline.map((item) => (
+                  <div key={item.year} className="flex gap-4">
+                    <div className="w-32 shrink-0 text-sm text-text-secondary pt-0.5">
+                      {item.year}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-text">{item.title}</p>
+                      <p className="mt-1 text-sm text-text-secondary leading-relaxed">
+                        {item.detail}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Contact */}
+          <ScrollReveal delay={0.25}>
             <div className="mt-16">
               <h2 className="text-2xl font-bold text-text">Get in Touch</h2>
               <div className="mt-2 h-1 w-12 rounded bg-primary" />
               <p className="mt-4 text-text-secondary leading-relaxed">
-                I&apos;m always open to interesting conversations and
-                collaboration opportunities. Feel free to reach out!
+                I&apos;m always happy to chat about engineering, side projects,
+                or photography. Feel free to reach out on any of the platforms
+                below.
               </p>
               <SocialLinks className="mt-4" iconSize={22} />
             </div>
           </ScrollReveal>
+
         </div>
       </div>
     </PageTransition>
