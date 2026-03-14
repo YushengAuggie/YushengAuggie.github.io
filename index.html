@@ -1,46 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Yusheng Ding : Welcome to my GitHub page.">
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-    <title>Yusheng Ding</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Yusheng Ding's personal website: software engineer building practical tools, open-source projects, and AI-powered learning systems." />
+    <meta property="og:title" content="Yusheng Ding | Personal Website" />
+    <meta property="og:description" content="Curious by default. Building by choice. Explore projects, background, and current focus." />
+    <meta property="og:image" content="avatar.jpg" />
+    <title>Yusheng Ding | Personal Website</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <h1 id="project_title">Yusheng Ding</h1>
-            <h2 id="project_tagline">Life is like a piece of code, full of uncertainties. We are writing the code for our lives, and for others.</h2>
-        </header>
-    </div>
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h5>
-            <p>In the last XX years, I've discovered my hobbies, loved ones, and lifelong friendships.</p>
-            <p>I've been through a major <a href="https://en.wikipedia.org/wiki/2008_Sichuan_earthquake">earthquake</a> and witnessed life and death both as a victim and as a volunteer.</p>
-            <p>From there, I saw how fragile and powerless we, as human beings, can be, and yet how strong and compassionate we can also be.</p>
-            <p>I grew up in China and currently live in the U.S. I am filled with curiosity about almost everything in life.</p>
-            <p>I enjoy helping people with my skills and experiences and believe that I can make a difference in the world.</p>
-            <p>Still working on defining myself. I don't want to rush.</p>
-            <p>Life goes on. Let's see what happens next...</p>
-        </h5>
-        <h3><a id="contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h3>
-        
-        <p>You can reach me via <a href="mailto:auggie1024.d@gmail.com?Subject=Hello%20From%20GitHubPage">Email</a>, <a href="https://github.com/YushengAuggie">GitHub</a>, <a href="https://twitter.com/ThinkleDing">Twitter</a>, <a href="https://www.instagram.com/formatmemory">Instagram</a>. </p>
-        
-    </section>
-    </div>
+    <header id="hero" class="hero section-fade">
+      <div class="container hero-content">
+        <img src="avatar.jpg" alt="Portrait of Yusheng Ding" class="avatar" />
+        <div class="hero-text">
+          <p class="kicker">Hello, I am</p>
+          <h1>Yusheng Ding</h1>
+          <p class="tagline">Curious by default. Building by choice.</p>
+          <p class="tagline bilingual">好奇心驱动，用代码创造</p>
+          <nav aria-label="Social links" class="social-links">
+            <a href="mailto:auggie1024.d@gmail.com">Email</a>
+            <a href="https://github.com/YushengAuggie" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://twitter.com/ThinkleDing" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://instagram.com/formatmemory" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </nav>
+        </div>
+      </div>
+    </header>
 
-    <!-- FOOTER 
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-     -->
+    <main>
+      <section id="about" class="about section-fade">
+        <div class="container">
+          <h2>About</h2>
+          <p>
+            I grew up in China, survived the 2008 Sichuan earthquake, and never stopped being curious.
+            I'm a software engineer who builds tools that solve real problems from developer
+            infrastructure to open-source learning systems. I believe in compounding: a little bit every
+            day, a lot over time.
+          </p>
+        </div>
+      </section>
 
+      <section id="projects" class="projects section-fade">
+        <div class="container">
+          <h2>Projects</h2>
+          <div class="project-grid">
+            <article class="project-card">
+              <h3>byte-by-byte</h3>
+              <p>
+                Daily bilingual tech learning system. 5 topics, 15 min/day, Chinese/English.
+                Automated via AI.
+              </p>
+              <a href="https://github.com/YushengAuggie/byte-by-byte" target="_blank" rel="noopener noreferrer">View project</a>
+            </article>
+
+            <article class="project-card">
+              <h3>phabricator-mcp-server</h3>
+              <p>
+                MCP server for Phabricator API integration. Task and code review management. Star 6.
+              </p>
+              <a href="https://github.com/YushengAuggie/phabricator-mcp-server" target="_blank" rel="noopener noreferrer">View project</a>
+            </article>
+
+            <article class="project-card">
+              <h3>Tianyancha</h3>
+              <p>Chinese business data crawler. Export company info to Excel. Star 23.</p>
+              <a href="https://github.com/YushengAuggie/Tianyancha" target="_blank" rel="noopener noreferrer">View project</a>
+            </article>
+
+            <article class="project-card">
+              <h3>poe-bot-host</h3>
+              <p>Multi-bot hosting framework for the Poe platform.</p>
+              <a href="https://github.com/YushengAuggie/poe-bot-host" target="_blank" rel="noopener noreferrer">View project</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="now" class="now section-fade">
+        <div class="container">
+          <h2>Now</h2>
+          <p>
+            Currently building byte-by-byte and exploring AI tooling. Always learning.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="footer section-fade">
+      <div class="container">
+        <p>&copy; <span id="year">2026</span> Yusheng Ding</p>
+      </div>
+    </footer>
   </body>
 </html>
