@@ -144,8 +144,8 @@ a:focus-visible {
 .social-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.85rem;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
   border-radius: 99px;
   border: 1.5px solid rgba(38, 70, 83, 0.25);
   font-size: 0.88rem;
@@ -223,10 +223,16 @@ section,
 }
 
 .project-card p {
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   font-size: 0.92rem;
   line-height: 1.6;
   flex-grow: 1;
+}
+
+.project-card .project-link,
+.project-card .project-links {
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 /* --- Project Link (styled as subtle button) --- */
@@ -255,7 +261,7 @@ section,
 
 .project-link-secondary {
   color: var(--text);
-  opacity: 0.55;
+  opacity: 0.65;
   font-weight: 500;
   font-size: 0.82rem;
 }
@@ -265,6 +271,34 @@ section,
   opacity: 1;
   color: var(--light-teal);
   transform: none;
+}
+
+/* --- CTA --- */
+
+.cta {
+  text-align: center;
+  padding: 3rem 0 2rem;
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.cta-pill {
+  font-size: 0.95rem;
+  padding: 0.6rem 1.4rem;
+  border-width: 2px;
+  border-color: var(--accent-bold);
+  color: var(--accent-bold);
+}
+
+.cta-pill:hover,
+.cta-pill:focus-visible {
+  background: var(--accent-bold);
+  color: white;
+  border-color: var(--accent-bold);
 }
 
 /* --- Footer --- */
