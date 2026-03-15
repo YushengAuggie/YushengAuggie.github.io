@@ -212,7 +212,8 @@ check_social_links() {
   local patterns=(
     'href="mailto:auggie1024\.d@gmail\.com"'
     'href="https://github\.com/YushengAuggie"'
-    'href="https://twitter\.com/ThinkleDing"'
+    'href="https://www\.linkedin\.com/in/yusheng-d-7857a775"'
+    'href="https://x\.com/ThinkleDing"'
     'href="https://instagram\.com/formatmemory"'
   )
   local missing=0
