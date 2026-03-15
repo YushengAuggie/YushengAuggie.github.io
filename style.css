@@ -247,6 +247,26 @@ section,
   transform: translateX(3px);
 }
 
+.project-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.project-link-secondary {
+  color: var(--text);
+  opacity: 0.55;
+  font-weight: 500;
+  font-size: 0.82rem;
+}
+
+.project-link-secondary:hover,
+.project-link-secondary:focus-visible {
+  opacity: 1;
+  color: var(--light-teal);
+  transform: none;
+}
+
 /* --- Footer --- */
 
 .footer {
