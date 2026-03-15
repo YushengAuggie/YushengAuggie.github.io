@@ -1,3 +1,8 @@
+/* ==============================================
+   Yusheng Ding — Personal Website
+   Palette: Warm Earth
+   ============================================== */
+
 :root {
   --primary-dark: #264653;
   --accent-warm: #f4a261;
@@ -10,6 +15,8 @@
   --shadow-strong: 0 16px 36px rgba(38, 70, 83, 0.2);
 }
 
+/* --- Reset & Base --- */
+
 * {
   box-sizing: border-box;
 }
@@ -21,7 +28,7 @@ html {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--text);
   background:
     radial-gradient(circle at 0% 0%, rgba(244, 162, 97, 0.15), transparent 32%),
@@ -30,36 +37,29 @@ body {
 }
 
 .container {
-  width: min(100% - 2rem, 68rem);
+  width: min(100% - 2rem, 52rem);
   margin: 0 auto;
 }
 
-.hero {
-  padding: 5rem 0 3rem;
+/* --- Skip Link (accessibility) --- */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-dark);
+  color: white;
+  border-radius: 0 0 0.5rem 0.5rem;
+  z-index: 100;
+  border: none;
 }
 
-.hero-content {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 2rem;
+.skip-link:focus {
+  top: 0;
 }
 
-.avatar {
-  width: 9.5rem;
-  height: 9.5rem;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid var(--accent-warm);
-  box-shadow: var(--shadow-strong);
-}
-
-.kicker {
-  margin: 0;
-  color: var(--light-teal);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
+/* --- Typography --- */
 
 h1,
 h2,
@@ -70,30 +70,18 @@ h3 {
 }
 
 h1 {
-  margin-bottom: 0.75rem;
-  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.5rem;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  margin-bottom: 1rem;
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  margin-bottom: 1.2rem;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
 }
 
-.tagline {
-  margin: 0.25rem 0;
+h3 {
   font-size: 1.1rem;
-}
-
-.tagline.bilingual {
-  color: var(--accent-bold);
-  font-weight: 600;
-}
-
-.social-links {
-  margin-top: 1.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
 }
 
 a {
@@ -110,27 +98,115 @@ a:focus-visible {
   outline: none;
 }
 
+/* --- Hero --- */
+
+.hero {
+  padding: 5rem 0 2.5rem;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.avatar {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--accent-warm);
+  box-shadow: var(--shadow-strong);
+}
+
+.tagline {
+  margin: 0.25rem 0;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.tagline.bilingual {
+  color: var(--accent-bold);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* --- Social Links (pills with icons) --- */
+
+.social-links {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(38, 70, 83, 0.25);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 150ms ease;
+}
+
+.social-pill:hover,
+.social-pill:focus-visible {
+  background: var(--primary-dark);
+  color: white;
+  border-color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.social-pill svg {
+  flex-shrink: 0;
+}
+
+/* --- Divider --- */
+
+.divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(38, 70, 83, 0.15), transparent);
+  margin: 0 auto;
+  width: min(100% - 2rem, 52rem);
+}
+
+/* --- Sections --- */
+
 section,
 .footer {
   padding: 2.5rem 0;
 }
 
 .about p {
-  max-width: 70ch;
+  max-width: 65ch;
+  margin-bottom: 0.8rem;
 }
+
+.about p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Project Grid --- */
 
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.1rem;
+  gap: 1.2rem;
 }
 
 .project-card {
   background: var(--card-bg);
-  border: 1px solid rgba(38, 70, 83, 0.18);
-  border-radius: 0.9rem;
-  padding: 1.2rem;
+  border: 1.5px solid rgba(38, 70, 83, 0.15);
+  border-radius: 1rem;
+  padding: 1.4rem;
   box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
 }
 
@@ -142,35 +218,72 @@ section,
 }
 
 .project-card h3 {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.6rem;
+  color: var(--primary-dark);
 }
 
 .project-card p {
-  margin-bottom: 0.9rem;
+  margin-bottom: 1rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  flex-grow: 1;
 }
 
-.footer {
-  border-top: 1px solid rgba(38, 70, 83, 0.2);
-  text-align: center;
-  color: rgba(45, 45, 45, 0.9);
+/* --- Project Link (styled as subtle button) --- */
+
+.project-link {
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--light-teal);
+  border-bottom: none;
+  transition: color 180ms ease, transform 150ms ease;
 }
+
+.project-link:hover,
+.project-link:focus-visible {
+  color: var(--accent-bold);
+  border-bottom: none;
+  transform: translateX(3px);
+}
+
+/* --- Footer --- */
+
+.footer {
+  border-top: 1px solid rgba(38, 70, 83, 0.15);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.footer-tagline {
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 0.25rem;
+}
+
+.footer p:last-child {
+  font-size: 0.85rem;
+  color: rgba(45, 45, 45, 0.6);
+}
+
+/* --- Animations --- */
 
 .section-fade {
   opacity: 0;
-  transform: translateY(8px);
-  animation: fade-in 700ms ease forwards;
+  transform: translateY(12px);
+  animation: fade-in 600ms ease forwards;
 }
 
 #about {
-  animation-delay: 120ms;
+  animation-delay: 150ms;
 }
 
 #projects {
-  animation-delay: 200ms;
+  animation-delay: 250ms;
 }
 
 #footer {
-  animation-delay: 280ms;
+  animation-delay: 350ms;
 }
 
 @keyframes fade-in {
@@ -180,9 +293,11 @@ section,
   }
 }
 
+/* --- Responsive --- */
+
 @media (max-width: 800px) {
   .hero {
-    padding-top: 3.5rem;
+    padding-top: 3rem;
   }
 
   .hero-content {
@@ -192,6 +307,8 @@ section,
 
   .avatar {
     margin-inline: auto;
+    width: 8rem;
+    height: 8rem;
   }
 
   .social-links {
