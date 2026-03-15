@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Pre-commit hook: runs test.sh before every commit
+echo "🧪 Running pre-commit tests..."
+REPO_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
+cd "$REPO_DIR" || exit 1
+bash test.sh
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+  echo "❌ Tests failed. Commit blocked."
+  exit 1
+fi
+echo "✅ All tests passed. Committing."
+exit 0

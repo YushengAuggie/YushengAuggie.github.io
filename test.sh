@@ -239,6 +239,78 @@ check_responsive_viewport() {
   fi
 }
 
+check_no_stale_references() {
+  local issues=0
+
+  # No references to removed sections
+  if contains "$HTML_FILE" 'id="now"'; then
+    issues=1
+    fail "HTML still references removed 'now' section"
+  fi
+
+  # Meta descriptions shouldn't reference non-existent content
+  local meta_desc
+  meta_desc=$(grep -o 'content="[^"]*"' "$HTML_FILE" | head -20)
+  if echo "$meta_desc" | grep -qi "current focus\|background.*focus"; then
+    issues=1
+    fail "Meta description references removed content"
+  fi
+
+  if [ "$issues" -eq 0 ]; then
+    pass "No stale references to removed content"
+  fi
+}
+
+check_no_banned_phrases() {
+  # Phrases we've explicitly decided to avoid
+  local banned=(
+    'software engineer'
+    'interview'
+    'morning'
+  )
+  local found=0
+
+  for phrase in "${banned[@]}"; do
+    if grep -qi "$phrase" "$HTML_FILE"; then
+      found=1
+      fail "HTML contains banned phrase: '$phrase'"
+    fi
+  done
+
+  if [ "$found" -eq 0 ]; then
+    pass "No banned phrases found"
+  fi
+}
+
+check_git_hygiene() {
+  # Only run if inside a git repo
+  if command -v git >/dev/null 2>&1 && git rev-parse --git-dir >/dev/null 2>&1; then
+    if git ls-files --error-unmatch .DS_Store >/dev/null 2>&1; then
+      fail ".DS_Store is tracked in git"
+    else
+      pass "No .DS_Store in git tracking"
+    fi
+  else
+    pass "No .DS_Store in git tracking (skipped — not a git repo)"
+  fi
+}
+
+check_404_page() {
+  if [ -s "404.html" ]; then
+    pass "404.html exists"
+  else
+    fail "404.html is missing"
+  fi
+}
+
+check_favicon() {
+  if [ -s "favicon.svg" ] && contains "$HTML_FILE" 'href="favicon.svg"'; then
+    pass "favicon.svg exists and is referenced"
+  else
+    fail "favicon.svg missing or not referenced"
+  fi
+}
+
 main() {
   check_file_nonempty "$HTML_FILE"
   check_file_nonempty "$CSS_FILE"
@@ -252,6 +324,11 @@ main() {
   check_no_localhost
   check_social_links
   check_responsive_viewport
+  check_no_stale_references
+  check_no_banned_phrases
+  check_git_hygiene
+  check_404_page
+  check_favicon
 
   printf '\nSummary: %d passed, %d failed\n' "$pass_count" "$fail_count"
 
