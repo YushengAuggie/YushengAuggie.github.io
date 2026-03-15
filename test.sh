@@ -172,7 +172,7 @@ check_required_meta() {
     '<meta name="description"[^>]*>'
     '<meta property="og:title"[^>]*>'
     '<meta property="og:description"[^>]*>'
-    '<meta property="og:image"[^>]*>'
+    '<meta property="og:image" content="https://[^"]*avatar.jpg"'
   )
   local missing=0
 
