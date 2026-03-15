@@ -115,8 +115,7 @@ section,
   padding: 2.5rem 0;
 }
 
-.about p,
-.now p {
+.about p {
   max-width: 70ch;
 }
 
@@ -170,12 +169,8 @@ section,
   animation-delay: 200ms;
 }
 
-#now {
-  animation-delay: 280ms;
-}
-
 #footer {
-  animation-delay: 360ms;
+  animation-delay: 280ms;
 }
 
 @keyframes fade-in {

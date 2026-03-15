@@ -42,7 +42,6 @@ check_sections() {
     'id="hero"'
     'id="about"'
     'id="projects"'
-    'id="now"'
     'id="footer"'
   )
 
@@ -56,7 +55,7 @@ check_sections() {
   done
 
   if [ "$ok" -eq 0 ]; then
-    pass "All required sections present (hero, about, projects, now, footer)"
+    pass "All required sections present (hero, about, projects, footer)"
   fi
 }
 
