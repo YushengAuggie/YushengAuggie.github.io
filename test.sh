@@ -62,6 +62,7 @@ check_sections() {
 check_project_links() {
   local urls=(
     'https://github.com/YushengAuggie/byte-by-byte'
+    'https://github.com/YushengAuggie/byte-by-design'
     'https://github.com/YushengAuggie/phabricator-mcp-server'
     'https://github.com/YushengAuggie/poe-bot-host'
   )
@@ -77,7 +78,7 @@ check_project_links() {
   done
 
   if [ "$missing" -eq 0 ]; then
-    pass "All 3 project links are present"
+    pass "All 4 project links are present"
   fi
 }
 
