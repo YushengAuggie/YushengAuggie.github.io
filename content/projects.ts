@@ -2,6 +2,14 @@ import type { Project } from "@/lib/types";
 
 export const projects: Project[] = [
   {
+    title: "Tempo — Attention, Priced",
+    description:
+      "A privacy-first time tracker that prices your day in real dollars. Tempo groups browser tabs into what you were actually doing, prices each intent against your hourly rate, and summarizes pages on-device with Chrome's built-in Gemini Nano — page text never leaves your machine. What little does leave is redacted and logged in an auditable Egress Ledger with SHA-256 receipts.",
+    tech: ["Chrome Extension", "Gemini Nano (on-device AI)", "TypeScript", "Privacy by design"],
+    live: "https://tempo-imru.onrender.com/",
+    featured: true,
+  },
+  {
     title: "Personal Website",
     description:
       "A cinematic personal website built with Next.js, Tailwind CSS, and Framer Motion. Features MDX blog, photo gallery, and scroll-driven animations.",
